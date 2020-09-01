@@ -6,29 +6,27 @@ import androidx.lifecycle.ViewModel
 
 class LoginViewModel(model: Model) : ViewModel() {
 
-    lateinit var model : Model
-    var modelLiveData : LiveData<String> = MutableLiveData()
+    var model: Model = model
 
-    private var liveName = MutableLiveData<String>()
-    private var liveNumber = MutableLiveData<String>()
-
-    fun getModelLiveData(){
-        this.model = model
-        liveName.value = this.model.name
-        liveNumber.value = this.model.number
-
-    }
+    var liveName = MutableLiveData<String>()
+    var liveNumber = MutableLiveData<String>()
 
     fun onClick() {
+
+//        liveName.value = this.model.name
+//        liveNumber.value = this.model.number
+
         liveName.value = model.name
         liveNumber.value = model.number
+
+        println("!!!!!!!!!!" + liveName.value)
     }
 
     fun getName(): MutableLiveData<String> {
         return liveName
     }
 
-    fun getNumber():MutableLiveData<String> {
+    fun getNumber(): MutableLiveData<String> {
         return liveNumber
     }
 
